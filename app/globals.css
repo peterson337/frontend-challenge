@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@theme {
+  --color-gray: #404040;
+  --color-light-purple: #ece8ff;
+  --color-purple: #792bf9;
+  --color-green: #2b932f;
+  --color-yellow: #b5a91f;
+  --color-red: #fc8888;
+  --radius-button-circle: 50%;
+}
+
 body {
   background-color: #f1f4fb;
 }
