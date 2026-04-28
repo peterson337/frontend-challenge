@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
+import { CursosFavoritosProvider } from "./context/cursosFavoritosContext";
 
 import { Inter } from "next/font/google";
 
@@ -34,11 +35,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col justify-between">
-        <div className={inter.className}>
-          <Header />
-          {children}
-        </div>
-        <Footer />
+        <CursosFavoritosProvider>
+          <div className={inter.className}>
+            <Header />
+            {children}
+          </div>
+          <Footer />
+        </CursosFavoritosProvider>
       </body>
     </html>
   );
