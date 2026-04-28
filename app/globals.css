@@ -7,7 +7,13 @@
   --color-green: #2b932f;
   --color-yellow: #b5a91f;
   --color-red: #fc8888;
+  --color-rose-red: #e33f52;
+  --color-dark-gray: #383838;
+  --color-transparent-black: #00000059;
   --radius-button-circle: 50%;
+  --font-family-roboto-condensed: "Roboto Condensed";
+  --font-inter: var(--font-inter);
+  --font-quattrocento: "Quattrocento";
 }
 
 body {
