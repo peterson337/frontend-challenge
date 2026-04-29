@@ -1,28 +1,13 @@
 import { use } from "react";
 import Courses from "./components/Ui/Courses";
 import Button from "./components/Ui/Button";
-import { Course } from "@/app/types/courses";
+import useFetchData from "@/app/hook/useFetchData";
 
 export default function Home() {
-  async function getCourses() {
-    const res = await fetch("https://api.evob.dev/content/courses", {
-      headers: { Origin: "http://localhost:3024" },
-    });
+  // Recebe o endpoint da API no primeiro parâmetro e, no segundo, o objeto que pode conter os dados da resposta da API, caso exista.
+  const { getCourses } = useFetchData();
 
-    const courses = await res.json();
-
-    const coursesData = courses.courses.map((item: Course) => ({
-      title: item.title,
-      slug: item.slug,
-      teachers: item.teachers,
-      banner: item.banner,
-      id: item.id,
-    }));
-
-    return coursesData;
-  }
-
-  const coursesData = use(getCourses());
+  const coursesData = use(getCourses("courses", "courses"));
 
   const [firstCourse, ...otherCourses] = coursesData;
 
@@ -57,14 +42,14 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Todos os cursos */}
+      {/* Exibe todos os cursos */}
       <Courses
         allCourses={otherCourses}
         title="Meus cursos"
         isFavoriteList={false}
       />
 
-      {/* Cursos favoritos */}
+      {/* Exibe os cursos favoritos */}
       <Courses title="Meus favoritos" isFavoriteList={true} />
     </>
   );
