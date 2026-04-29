@@ -43,7 +43,7 @@ export default function Header() {
 
         <div className={`${flexRow} gap-3`}>
           <div className="bg-light-purple px-0.75 py-0.75 rounded">
-            <Image src="/logo.png" alt="logo" width={28} height={28} />
+            <Image src="/logo.svg" alt="logo" width={28} height={28} />
           </div>
 
           <h1 className="text-2xl font-bold text-gray">EVOB</h1>
