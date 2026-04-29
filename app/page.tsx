@@ -2,12 +2,23 @@ import { use } from "react";
 import Courses from "./components/Ui/Courses";
 import Button from "./components/Ui/Button";
 import useFetchData from "@/app/hook/useFetchData";
+import { Course } from "@/app/types/courses";
 
 export default function Home() {
   // Recebe o endpoint da API no primeiro parâmetro e, no segundo, o objeto que pode conter os dados da resposta da API, caso exista.
   const { getCourses } = useFetchData();
 
-  const coursesData = use(getCourses("courses", "courses"));
+  // Função utilitária para realizar requisições à API, recebendo o endpoint como parâmetro.
+  const fetchData = use(getCourses("courses"));
+
+  // Extrai apenas os dados necessários da resposta da API para serem utilizados na aplicação
+  const coursesData = fetchData.courses.map((item: Course) => ({
+    title: item.title,
+    slug: item.slug,
+    teachers: item.teachers,
+    banner: item.banner,
+    id: item.id,
+  }));
 
   const [firstCourse, ...otherCourses] = coursesData;
 
