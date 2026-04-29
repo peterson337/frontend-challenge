@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Button from "./Button";
 import { useCursosFavoritos } from "@/app/context/cursosFavoritosContext";
 import { Course } from "@/app/types/courses";
@@ -13,6 +14,7 @@ type Props = {
 
 export default function Courses(props: Props) {
   const { allCourses, isFavoriteList, title } = props;
+  const router = useRouter();
   const { cursosFavoritos, isCursoFavorito, setCursosFavoritos } =
     useCursosFavoritos();
 
@@ -108,11 +110,12 @@ export default function Courses(props: Props) {
                         backgroundColor: "bg-purple",
                         textColor: "text-white",
                         hover: true,
-                        fontFamily: "font-family-roboto-condensed",
-                        fontWeight: "font-semibold",
                       }}
                       rounded="rounded-none"
                       size="w-full inline-flex items-center justify-center py-3"
+                      fontFamily="font-family-roboto-condensed"
+                      fontWeight="font-semibold"
+                      onClick={() => router.push(`curso/${course.slug}`)}
                     >
                       Acessar
                     </Button>
