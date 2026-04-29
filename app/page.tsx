@@ -57,7 +57,15 @@ export default function Home() {
         </div>
       </div>
 
-      <Courses allCourses={otherCourses} title="Meus cursos" />
+      {/* Todos os cursos */}
+      <Courses
+        allCourses={otherCourses}
+        title="Meus cursos"
+        isFavoriteList={false}
+      />
+
+      {/* Cursos favoritos */}
+      <Courses title="Meus favoritos" isFavoriteList={true} />
     </>
   );
 }
