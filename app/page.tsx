@@ -41,11 +41,11 @@ export default function Home() {
                 backgroundColor: "bg-black",
                 textColor: "text-white",
                 hover: true,
-                fontFamily: "font-family-roboto-condensed",
-                fontWeight: "font-semibold",
               }}
               rounded="rounded-none"
               size="px-10 py-4"
+              fontFamily= "font-family-roboto-condensed"
+              fontWeight= "font-semibold"
             >
               Conheça as aulas
             </Button>
