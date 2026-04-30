@@ -3,7 +3,8 @@ import { RiUserLine } from "react-icons/ri";
 import Button from "../Ui/Button";
 import Menu from "@/app/components/icons/Menu";
 import Search from "@/app/components/icons/Search";
-import Logo from "@/app/components/icons/Logo";
+import Brand from "@/app/components/Ui/Brand";
+
 export default function Header() {
   const flexRow = "flex flex-row items-center";
 
@@ -40,11 +41,7 @@ export default function Header() {
         </div>
 
         <div className={`${flexRow} gap-3`}>
-          <div className="bg-light-purple px-0.75 py-0.75 rounded">
-            <Logo />
-          </div>
-
-          <h1 className="text-2xl font-bold text-gray">EVOB</h1>
+          <Brand />
         </div>
 
         <div className={`${flexRow} gap-4`}>
