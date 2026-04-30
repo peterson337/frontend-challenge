@@ -1,17 +1,20 @@
 "use client";
-
 import React from "react";
 import Button from "@/app/components/Ui/Button";
 import Modal from "@/app/components/Ui/Modal";
 import Share from "@/app/components/icons/Share";
 import Heart from "@/app/components/icons/Heart";
+import { useRouter } from "next/navigation";
+
 type CourseDetailActionsProps = {
   title: string;
   long_description: string;
 };
 export default function CourseDetailActions(props: CourseDetailActionsProps) {
-    const [isOpenModal, setIsOpenModal] = React.useState(false);
-  
+  const router = useRouter();
+
+  const [isOpenModal, setIsOpenModal] = React.useState(false);
+
   const { title, long_description } = props;
 
   // Função utilitária para remover tags HTML de uma string
@@ -21,7 +24,7 @@ export default function CourseDetailActions(props: CourseDetailActionsProps) {
 
   return (
     <>
-    {isOpenModal && <Modal setIsOpenModal={setIsOpenModal} />}
+      {isOpenModal && <Modal setIsOpenModal={setIsOpenModal} />}
       <div className="flex flex-col items-stretch gap-4 p-6 w-full md:px-15 md:py-12">
         <div className="flex flex-col gap-3 md:flex-row-reverse justify-between">
           <div className="md:flex  md:gap-1 md:flex-row">
@@ -55,6 +58,7 @@ export default function CourseDetailActions(props: CourseDetailActionsProps) {
               width="w-full md:w-[114px]"
               display="hidden md:block"
               heigth="h-[31px]"
+              onClick={() => router.push("/cadastro")}
             >
               <span className="font-sembold text-xs text-left text-white">
                 Iniciar curso
