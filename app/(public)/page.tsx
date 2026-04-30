@@ -1,6 +1,6 @@
 import { use } from "react";
-import Courses from "./components/Ui/Courses";
-import Button from "./components/Ui/Button";
+import Courses from "../components/Ui/Courses";
+import Button from "../components/Ui/Button";
 import useFetchData from "@/app/hook/useFetchData";
 import { Course } from "@/app/types/courses";
 
@@ -44,8 +44,8 @@ export default function Home() {
               }}
               rounded="rounded-none"
               size="px-10 py-4"
-              fontFamily= "font-family-roboto-condensed"
-              fontWeight= "font-semibold"
+              fontFamily="font-family-roboto-condensed"
+              fontWeight="font-semibold"
             >
               Conheça as aulas
             </Button>
