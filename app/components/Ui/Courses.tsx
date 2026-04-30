@@ -1,11 +1,10 @@
 "use client";
-import React from "react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Button from "./Button";
 import { useCursosFavoritos } from "@/app/context/cursosFavoritosContext";
 import { Course } from "@/app/types/courses";
 import Fire from "@/app/components/icons/Fire";
+import HeartSearch from "@/app/components/icons/HeartSearch";
 
 type Props = {
   allCourses?: Course[];
@@ -118,12 +117,7 @@ export default function Courses(props: Props) {
           <div className="col-span-full flex  items-center justify-center">
             <div className="flex w-70.5 flex-col items-center gap-2.5 p-6">
               <div className="flex items-center gap-2.5 rounded-full border border-[#E4E0E0] bg-white p-2">
-                <Image
-                  src="/heart-search.svg"
-                  alt="Ícone de coração"
-                  width={24}
-                  height={24}
-                />
+                <HeartSearch />
               </div>
               <p className="h-9.75 w-full text-center text-[14px] font-normal leading-[116%] text-[#666666]">
                 Parece que você ainda não tem cursos favoritados
