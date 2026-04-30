@@ -37,10 +37,8 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col justify-between">
         <CursosFavoritosProvider>
           <div className={inter.className}>
-            <Header />
             {children}
           </div>
-          <Footer />
         </CursosFavoritosProvider>
       </body>
     </html>

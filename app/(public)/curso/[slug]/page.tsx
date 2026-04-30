@@ -1,6 +1,6 @@
 import { use } from "react";
 import useFetchData from "@/app/hook/useFetchData";
-import CourseDetailActions from "@/app/curso/[slug]/CourseDetailActions";
+import CourseDetailActions from "@/app/(main)/curso/[slug]/CourseDetailActions";
 type CourseDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
