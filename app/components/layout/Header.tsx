@@ -4,7 +4,8 @@ import { CiLogin } from "react-icons/ci";
 import { RiUserLine } from "react-icons/ri";
 import Image from "next/image";
 import Button from "../Ui/Button";
-
+import Menu from "@/app/components/icons/Menu";
+import Search from "@/app/components/icons/Search";
 export default function Header() {
   const flexRow = "flex flex-row items-center";
 
@@ -18,13 +19,12 @@ export default function Header() {
         className={` ${flexRow} justify-between  md:px-15 md:py-5 gap-4 pt-4 pb-5 px-5`}
       >
         <div className={`${flexRow} gap-4`}>
-          <RiMenu2Fill size={28} className={iconMobile} />
+          <div className={iconMobile}>
+            <Menu />
+          </div>
 
           <div className={`${flexRow}  gap-2`}>
-            <CiSearch
-              className="cursor-pointer text-purple hover:text-yellow text-2xl md:text-[19px]"
-              strokeWidth={1.0}
-            />
+            <Search />
             <div className={`${renderDesktop} md:bg-white md:text-black `}>
               <Button
                 colorButton={{

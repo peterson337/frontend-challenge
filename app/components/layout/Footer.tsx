@@ -1,13 +1,15 @@
-import Image from "next/image";
-
+import Youtube from "@/app/components/icons/Youtube";
+import Facebook from "@/app/components/icons/Facebook";
+import Instagram from "@/app/components/icons/Instagram";
+import WhatsApp from "@/app/components/icons/WhatsApp";
 export default function Footer() {
   return (
     <footer className="flex w-full flex-col items-start gap-8 px-5 py-9 md:flex-row md:items-center md:justify-between md:gap-0 md:py-[20px] md:px-[60px]">
       <div className="flex items-center gap-5">
-        <Image src="/Whatsapp.svg" alt="Whatsapp" width={16} height={16} />
-        <Image src="/youtube.svg" alt="Youtube" width={16} height={16} />
-        <Image src="/facebook.svg" alt="Facebook" width={16} height={16} />
-        <Image src="/Instagram.svg" alt="Instagram" width={16} height={16} />
+        <WhatsApp textColor="#090909" />
+        <Youtube />
+        <Facebook />
+        <Instagram />
       </div>
 
       <div className="flex flex-col items-start gap-5 md:flex-row md:items-center md:gap-[60px]">
