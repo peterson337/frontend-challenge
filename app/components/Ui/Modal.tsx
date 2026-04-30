@@ -16,7 +16,7 @@ export default function Modal({
         onClick={() => setIsOpenModal(false)}
       >
         <div
-          className="flex flex-col items-stretch rounded-[4px] w-[343px] md:w-[405px] bg-[#FEFEFE]"
+          className="flex flex-col items-stretch rounded-sm w-85.75 md:w-101.25 bg-[#FEFEFE]"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex flex-row justify-between items-center pt-2 pr-2 pb-2 pl-4 border-b border-[#F3F4F6]">
@@ -44,7 +44,7 @@ export default function Modal({
           <div className="flex flex-col items-stretch gap-4 p-4">
             <div className="flex flex-col gap-2">
               <div className="flex flex-row items-center gap-2 px-3 py-2 bg-[#FEFEFE] border border-[#D1D5DB] shadow-sm">
-                <span className="flex-1 font-inter font-normal text-sm leading-[125%] text-[#404040]">
+                <span className="flex-1 font-inter font-normal text-sm leading-[125%] text-gray">
                   https//:www.curso.com/iwejfnwieuf...
                 </span>
 
@@ -76,7 +76,7 @@ export default function Modal({
               border="border-none"
               width="w-full"
             >
-              <span className="flex flex-row justify-center items-center gap-[6px]">
+              <span className="flex flex-row justify-center items-center gap-1.5">
                 <WhatsApp textColor="#FFFFFF" />
 
                 <span className="font-inter font-medium text-xs leading-[125%] text-[#FAFAFA]">
@@ -100,7 +100,7 @@ export default function Modal({
               border="border border-[#E5E7EB]"
               onClick={() => setIsOpenModal(false)}
             >
-              <span className="font-medium text-xs leading-[125%] text-[#404040]">
+              <span className="font-medium text-xs leading-[125%] text-gray">
                 Fechar
               </span>
             </Button>

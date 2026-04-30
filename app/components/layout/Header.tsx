@@ -1,5 +1,3 @@
-import { RiMenu2Fill } from "react-icons/ri";
-import { CiSearch } from "react-icons/ci";
 import { CiLogin } from "react-icons/ci";
 import { RiUserLine } from "react-icons/ri";
 import Image from "next/image";

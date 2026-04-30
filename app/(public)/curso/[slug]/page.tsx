@@ -21,7 +21,7 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
         <>
           {/* Banner do curso */}
           <div
-            className="h-[170px] md:h-[540px] w-full bg-cover bg-contain  bg-no-repeat"
+            className="h-42.5 md:h-135 w-full bg-cover  bg-no-repeat"
             style={{ backgroundImage: `url(${banner})` }}
           />
           <CourseDetailActions
