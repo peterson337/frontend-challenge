@@ -1,9 +1,9 @@
 import { CiLogin } from "react-icons/ci";
 import { RiUserLine } from "react-icons/ri";
-import Image from "next/image";
 import Button from "../Ui/Button";
 import Menu from "@/app/components/icons/Menu";
 import Search from "@/app/components/icons/Search";
+import Logo from "@/app/components/icons/Logo";
 export default function Header() {
   const flexRow = "flex flex-row items-center";
 
@@ -41,7 +41,7 @@ export default function Header() {
 
         <div className={`${flexRow} gap-3`}>
           <div className="bg-light-purple px-0.75 py-0.75 rounded">
-            <Image src="/logo.svg" alt="logo" width={28} height={28} />
+            <Logo />
           </div>
 
           <h1 className="text-2xl font-bold text-gray">EVOB</h1>
