@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef} from "react";
 
 export function useCadastroForm() {
   const nomeRef = useRef<HTMLInputElement>(null);
@@ -7,9 +7,7 @@ export function useCadastroForm() {
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleStartCourse = () => {
+  const validateForm = () => {
     const nome = nomeRef.current?.value || "";
     const email = emailRef.current?.value || "";
     const confirmEmail = confirmEmailRef.current?.value || "";
@@ -42,15 +40,7 @@ export function useCadastroForm() {
       return;
     }
 
-    console.log("Formulário validado com sucesso!");
-    console.log("Nome:", nome);
-    console.log("Email:", email);
-    console.log("confirmEmail:", confirmEmail);
-    console.log("Senha:", password);
-    console.log("confirmPasswordRef:", confirmPasswordRef.current?.value);
-
-    // Esconde o formulário exibindo fragment 
-    // setIsSubmitted(true);
+   return true;
   };
 
   return {
@@ -59,7 +49,6 @@ export function useCadastroForm() {
     confirmEmailRef,
     passwordRef,
     confirmPasswordRef,
-    isSubmitted,
-    handleStartCourse,
+    validateForm,
   };
 }
