@@ -1,4 +1,10 @@
-export default function Heart() {
+type Props = {
+  fill: string;
+  stroke: string;
+};
+
+export default function Heart(props: Props) {
+  const { fill, stroke } = props;
   return (
     <>
       <svg
@@ -10,7 +16,8 @@ export default function Heart() {
       >
         <path
           d="M10.5166 17.3417C10.2333 17.4417 9.76663 17.4417 9.48329 17.3417C7.06663 16.5167 1.66663 13.075 1.66663 7.24166C1.66663 4.66666 3.74163 2.58333 6.29996 2.58333C7.81663 2.58333 9.15829 3.31666 9.99996 4.45C10.8416 3.31666 12.1916 2.58333 13.7 2.58333C16.2583 2.58333 18.3333 4.66666 18.3333 7.24166C18.3333 13.075 12.9333 16.5167 10.5166 17.3417Z"
-          stroke="#000000"
+          fill={fill}
+          stroke={stroke}
           strokeLinecap="round"
           strokeLinejoin="round"
         />

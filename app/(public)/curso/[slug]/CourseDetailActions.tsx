@@ -5,20 +5,25 @@ import Modal from "@/app/components/Ui/Modal";
 import Share from "@/app/components/icons/Share";
 import Heart from "@/app/components/icons/Heart";
 import { useRouter } from "next/navigation";
+import { Course } from "@/app/types/courses";
+import { useCursosFavoritos } from "@/app/context/cursosFavoritosContext";
 
 type CourseDetailActionsProps = {
-  title: string;
-  long_description: string;
+  course: Course;
 };
 export default function CourseDetailActions(props: CourseDetailActionsProps) {
   const router = useRouter();
+  const { isCursoFavorito } = useCursosFavoritos();
 
   const [isOpenModal, setIsOpenModal] = React.useState(false);
 
-  const { title, long_description } = props;
+  const { course } = props;
+  const { title, long_description } = course;
+  const isFav = isCursoFavorito(course?.id);
 
   // Função utilitária para remover tags HTML de uma string
-  function stripHtmlTags(html: string): string {
+  function stripHtmlTags(html: string | undefined): string {
+    if (!html) return "";
     return html.replace(/<[^>]*>/g, "");
   }
 
@@ -40,9 +45,12 @@ export default function CourseDetailActions(props: CourseDetailActionsProps) {
               heigth="h-[31px]"
             >
               <span className="flex flex-row justify-center items-center gap-1.5">
-                <Heart />
+                <Heart
+                  fill={isFav ? "red" : "none"}
+                  stroke={isFav ? "red" : "#272727"}
+                />
                 <span className="font-sembold text-xs text-left text-[#272727]">
-                  Favoritar
+                  {isFav ? "Favoritado" : "Favoritar"}
                 </span>
               </span>
             </Button>

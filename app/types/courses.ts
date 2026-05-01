@@ -4,4 +4,5 @@ export type Course = {
   teachers: [];
   banner: string;
   id: number;
+  long_description?: string;
 };

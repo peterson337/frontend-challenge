@@ -13,6 +13,7 @@ type CursosFavoritosContextData = {
   cursosFavoritos: Course[];
   setCursosFavoritos: React.Dispatch<React.SetStateAction<Course[]>>;
   isCursoFavorito: (courseId: number) => boolean;
+  toggleCursoFavorito: (curso: Course) => void;
 };
 
 const CursosFavoritosContext = createContext<CursosFavoritosContextData | null>(
@@ -31,9 +32,19 @@ export function CursosFavoritosProvider({
     [cursosFavoritos],
   );
 
+  const toggleCursoFavorito = useCallback((curso: Course) => {
+    setCursosFavoritos((prevState) => {
+      const isFavorito = prevState.some((item) => item.id === curso.id);
+      if (isFavorito) {
+        return prevState.filter((item) => item.id !== curso.id);
+      }
+      return [...prevState, curso];
+    });
+  }, []);
+
   const value = useMemo(
-    () => ({ cursosFavoritos, setCursosFavoritos, isCursoFavorito }),
-    [cursosFavoritos, isCursoFavorito],
+    () => ({ cursosFavoritos, setCursosFavoritos, isCursoFavorito, toggleCursoFavorito }),
+    [cursosFavoritos, isCursoFavorito, toggleCursoFavorito]
   );
 
   return (
