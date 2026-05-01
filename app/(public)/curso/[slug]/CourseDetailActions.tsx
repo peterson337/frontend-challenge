@@ -30,7 +30,7 @@ export default function CourseDetailActions(props: CourseDetailActionsProps) {
   return (
     <>
       {isOpenModal && <Modal setIsOpenModal={setIsOpenModal} />}
-      <div className="flex flex-col items-stretch gap-4 p-6 w-full md:px-15 md:py-12">
+      <div className="flex flex-col items-stretch gap-4 p-6 w-full md:px-15 md:py-2 md:mt-7">
         <div className="flex flex-col gap-3 md:flex-row-reverse justify-between">
           <div className="md:flex  md:gap-1 md:flex-row">
             <Button
@@ -83,7 +83,7 @@ export default function CourseDetailActions(props: CourseDetailActionsProps) {
           {stripHtmlTags(long_description)}
         </p>
 
-        <div className="fixed bottom-96 right-4 md:bottom-20 md:right-18">
+        <div className="fixed bottom-56 right-4 md:bottom-26 md:right-18">
           <Button
             colorButton={{
               backgroundColor: "bg-white",

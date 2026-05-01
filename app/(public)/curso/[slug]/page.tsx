@@ -1,7 +1,6 @@
 import { use } from "react";
 import useFetchData from "@/app/hook/useFetchData";
 import CourseDetailActions from "@/app/(public)/curso/[slug]/CourseDetailActions";
-import { Course } from "@/app/types/courses";
 
 type CourseDetailPageProps = {
   params: Promise<{ slug: string }>;
@@ -29,14 +28,14 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
   return (
     <>
       {courseData ? (
-        <>
+        <section className="h-[68dvh] md:h-auto ">
           {/* Banner do curso */}
           <div
             className="h-42.5 md:h-135 w-full bg-cover  bg-no-repeat"
             style={{ backgroundImage: `url(${banner})` }}
           />
           <CourseDetailActions course={courseData} />
-        </>
+        </section>
       ) : (
         <div>Curso não encontrado</div>
       )}
