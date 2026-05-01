@@ -15,20 +15,8 @@ type Props = {
 export default function Courses(props: Props) {
   const { allCourses, isFavoriteList, title } = props;
   const router = useRouter();
-  const { cursosFavoritos, isCursoFavorito, setCursosFavoritos } =
+  const { cursosFavoritos, isCursoFavorito, toggleCursoFavorito } =
     useCursosFavoritos();
-
-  function toggleCursoFavorito(curso: Course) {
-    const isFavorito = isCursoFavorito(curso.id);
-
-    setCursosFavoritos((prevState) => {
-      if (isFavorito) {
-        return prevState.filter((item) => item.id !== curso.id);
-      }
-
-      return [...prevState, curso];
-    });
-  }
 
   const coursesToRender = isFavoriteList
     ? cursosFavoritos

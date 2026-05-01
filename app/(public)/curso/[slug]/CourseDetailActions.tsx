@@ -13,7 +13,7 @@ type CourseDetailActionsProps = {
 };
 export default function CourseDetailActions(props: CourseDetailActionsProps) {
   const router = useRouter();
-  const { isCursoFavorito } = useCursosFavoritos();
+  const { isCursoFavorito, toggleCursoFavorito } = useCursosFavoritos();
 
   const [isOpenModal, setIsOpenModal] = React.useState(false);
 
@@ -43,6 +43,7 @@ export default function CourseDetailActions(props: CourseDetailActionsProps) {
               width="w-full md:w-[114px]"
               border="border border-[#D4D9EB]"
               heigth="h-[31px]"
+              onClick={() => toggleCursoFavorito(course)}
             >
               <span className="flex flex-row justify-center items-center gap-1.5">
                 <Heart

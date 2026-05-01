@@ -13,7 +13,7 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
   const courseData = use(getCourses(`courses/${slug}`));
 
   // Extrai apenas os dados necessários da resposta da API para serem utilizados na aplicação
-  const { title, banner, long_description } = courseData;
+  const { title, banner, long_description, id } = courseData;
 
   return (
     <>
@@ -24,10 +24,7 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
             className="h-42.5 md:h-135 w-full bg-cover  bg-no-repeat"
             style={{ backgroundImage: `url(${banner})` }}
           />
-          <CourseDetailActions
-            title={title}
-            long_description={long_description}
-          />
+          <CourseDetailActions course={courseData} />
         </>
       ) : (
         <div>Curso não encontrado</div>
