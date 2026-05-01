@@ -4,7 +4,7 @@ import Instagram from "@/app/components/icons/Instagram";
 import WhatsApp from "@/app/components/icons/WhatsApp";
 export default function Footer() {
   return (
-    <footer className="flex w-full flex-col items-start gap-8 px-5 py-9 md:flex-row md:items-center md:justify-between md:gap-0 md:py-5 md:px-3.75">
+    <footer className="flex w-full flex-col items-start gap-8 px-5 py-9 md:flex-row md:items-center md:justify-between md:gap-0 md:py-10 md:px-16">
       <div className="flex items-center gap-5">
         <WhatsApp textColor="#090909" />
         <Youtube />
