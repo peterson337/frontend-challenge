@@ -11,16 +11,29 @@ type ButtonProps = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   shadow?: string;
   width?: string;
-  heigth?: string;  
+  heigth?: string;
   border?: string;
   fontFamily?: string;
   fontWeight?: string;
   display?: string;
 };
 export default function Button(props: ButtonProps) {
-  const { colorButton, children, rounded, size, onClick, shadow, width, border, fontFamily, fontWeight, display, heigth } = props;
-  const { backgroundColor, textColor, hover} = colorButton;
-  const IsButtonHover = hover ? "hover:bg-yellow active:bg-red" : "";
+  const {
+    colorButton,
+    children,
+    rounded,
+    size,
+    onClick,
+    shadow,
+    width,
+    border,
+    fontFamily,
+    fontWeight,
+    display,
+    heigth,
+  } = props;
+  const { backgroundColor, textColor, hover } = colorButton;
+  const IsButtonHover = hover ? "hover:bg-[#D6D10B] active:bg-[#B56576]" : "";
 
   return (
     <button
