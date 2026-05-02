@@ -14,6 +14,8 @@ type CursosFavoritosContextData = {
   setCursosFavoritos: React.Dispatch<React.SetStateAction<Course[]>>;
   isCursoFavorito: (courseId: number) => boolean;
   toggleCursoFavorito: (curso: Course) => void;
+  searchTerm: string;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const CursosFavoritosContext = createContext<CursosFavoritosContextData | null>(
@@ -26,6 +28,7 @@ export function CursosFavoritosProvider({
   children: React.ReactNode;
 }) {
   const [cursosFavoritos, setCursosFavoritos] = useState<Course[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const isCursoFavorito = useCallback(
     (courseId: number) => cursosFavoritos.some((item) => item.id === courseId),
@@ -43,8 +46,8 @@ export function CursosFavoritosProvider({
   }, []);
 
   const value = useMemo(
-    () => ({ cursosFavoritos, setCursosFavoritos, isCursoFavorito, toggleCursoFavorito }),
-    [cursosFavoritos, isCursoFavorito, toggleCursoFavorito]
+    () => ({ cursosFavoritos, setCursosFavoritos, isCursoFavorito, toggleCursoFavorito, searchTerm, setSearchTerm }),
+    [cursosFavoritos, isCursoFavorito, toggleCursoFavorito, searchTerm]
   );
 
   return (
