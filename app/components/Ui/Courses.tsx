@@ -31,24 +31,31 @@ export default function Courses(props: Props) {
       : (allCourses || []).filter((course) => !isCursoFavorito(course.id));
   }, [isFavoriteList, cursosFavoritos, allCourses]);
 
-  const coursesToRender = baseCourses.filter((course) =>
-    course.title.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const normalizedSearchTerm = searchTerm.toLowerCase();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setSearchTerm(searchTerm);
-    }, 400);
+  const coursesToRender = useMemo(() => {
+    return baseCourses.filter((course) =>
+      course.title.toLowerCase().includes(normalizedSearchTerm),
+    );
+  }, [baseCourses, normalizedSearchTerm]);
 
-    return () => clearTimeout(timer);
-  }, [searchTerm]);
+  const hasMatchingFavorite = useMemo(() => {
+    return cursosFavoritos.some((course) =>
+      course.title.toLowerCase().includes(normalizedSearchTerm),
+    );
+  }, [cursosFavoritos, normalizedSearchTerm]);
+
+  const shouldShowNotFound =
+    !isFavoriteList &&
+    searchTerm !== "" &&
+    coursesToRender.length === 0 &&
+    !hasMatchingFavorite;
 
   const isEmptySearch = searchTerm !== "" && coursesToRender.length === 0;
 
   if (isFavoriteList && isEmptySearch) {
     return null;
   }
-
   return (
     <>
       <section className="mt-5 grid md:grid-cols-[repeat(auto-fit,22rem)] justify-center">
@@ -145,7 +152,7 @@ export default function Courses(props: Props) {
                   </div>
                 </div>
               ))
-            ) : isEmptySearch && !isFavoriteList ? (
+            ) : shouldShowNotFound ? (
               <div className="col-span-full flex flex-col items-center justify-center my-10 px-5">
                 <div className="mb-6">
                   <CourseNotFound />
