@@ -5,10 +5,10 @@ import SuccessMessage from "@/app/components/layout/SuccessMessage";
 type Props = {
   isSubmitted: boolean;
   setIsSubmitted: (value: boolean) => void;
-}
+};
 
 export default function Form(props: Props) {
-  const {isSubmitted, setIsSubmitted} = props;
+  const { isSubmitted, setIsSubmitted } = props;
 
   const {
     nomeRef,
@@ -22,12 +22,14 @@ export default function Form(props: Props) {
   const handleSubmit = () => {
     const result = validateForm();
     if (result) setIsSubmitted(true);
-  }
+  };
 
   return (
     <>
       {isSubmitted ? (
-        <SuccessMessage />
+        <div className=" h-[calc(90dvh-100px)] flex items-center">
+          <SuccessMessage />
+        </div>
       ) : (
         <div className="flex flex-col items-stretch w-full gap-6 md:gap-[24px]">
           <form
