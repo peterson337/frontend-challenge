@@ -11,11 +11,11 @@ export default function SuccessMessage() {
   useEffect(() => {
     if (countdown === 0) router.push("/");
 
-    if (countdown > -1) {
+    if (countdown > 0) {
       const timer = setTimeout(() => setCountdown((prev) => prev - 1), 1000);
       return () => clearTimeout(timer);
     }
-  }, [countdown]);
+  }, [countdown, router]);
 
   return (
     <div className="flex flex-col items-center w-full gap-[24px]  md:relative top-0 left-0 absolute justify-center h-screen md:h-auto">
