@@ -1,5 +1,5 @@
 "use client";
-import {useMemo, useEffect } from "react";
+import { useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Button from "./Button";
 import { useCursosFavoritos } from "@/app/context/cursosFavoritosContext";
@@ -53,7 +53,7 @@ export default function Courses(props: Props) {
     <>
       <section className="mt-5 grid md:grid-cols-[repeat(auto-fit,22rem)] justify-center">
         {!isFavoriteList && (
-          <div className="col-span-full mx-5 md:mx-3 my-5 text-2xl md:text-3xl md:my-10 text-left w-1/2">
+          <div className="col-span-full mx-5 md:mx-3 my-5 text-2xl md:text-3xl md:my-10 text-left w-[90%] md:w-1/2">
             <label>Digite o nome do curso</label>
             <div className="flex flex-row items-center w-full gap-2 px-[14px] py-[10px] bg-white border border-[#D5D7DA] rounded-[2px] shadow-[0px_1px_2px_0px_rgba(10,13,18,0.05)] mt-4">
               <input
@@ -145,26 +145,24 @@ export default function Courses(props: Props) {
                   </div>
                 </div>
               ))
-            ) : (
-              isEmptySearch && !isFavoriteList ? (
-                <div className="col-span-full flex flex-col items-center justify-center my-10 px-5">
-                  <div className="mb-6">
-                    <CourseNotFound />
-                  </div>
-                  <h2 className="text-[24px] md:text-[32px] font-bold text-[#090909] text-center leading-tight">
-                    Nenhum curso encontrado
-                  </h2>
-                  <div className="mt-4 flex flex-col items-center gap-1.5">
-                    <p className="text-[#6B7280] text-[16px] md:text-[18px] text-center">
-                      {`Não encontramos cursos com esse nome: ${searchTerm}.`}
-                    </p>
-                    <p className="text-[#6B7280] text-[16px] md:text-[18px] text-center">
-                      Tente buscar por outro termo.
-                    </p>
-                  </div>
+            ) : isEmptySearch && !isFavoriteList ? (
+              <div className="col-span-full flex flex-col items-center justify-center my-10 px-5">
+                <div className="mb-6">
+                  <CourseNotFound />
                 </div>
-              ) : null
-            )}
+                <h2 className="text-[24px] md:text-[32px] font-bold text-[#090909] text-center leading-tight">
+                  Nenhum curso encontrado
+                </h2>
+                <div className="mt-4 flex flex-col items-center gap-1.5">
+                  <p className="text-[#6B7280] text-[16px] md:text-[18px] text-center">
+                    {`Não encontramos cursos com esse nome: ${searchTerm}.`}
+                  </p>
+                  <p className="text-[#6B7280] text-[16px] md:text-[18px] text-center">
+                    Tente buscar por outro termo.
+                  </p>
+                </div>
+              </div>
+            ) : null}
           </>
         ) : (
           <div className="col-span-full flex  items-center justify-center">
